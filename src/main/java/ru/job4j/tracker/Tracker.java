@@ -55,4 +55,17 @@ public class Tracker {
         }
         return index != -1;
     }
+
+    public boolean delete(int id) {
+        int index = indexOf(id);
+        int start = index + 1;
+        int length  = size - index - 1;
+        if (index != -1) {
+            items[indexOf(id)] = null;
+            items[size - 1] = null;
+            size--;
+            System.arraycopy(items, start, items, index, length);
+        }
+        return index != -1;
+    }
 }
