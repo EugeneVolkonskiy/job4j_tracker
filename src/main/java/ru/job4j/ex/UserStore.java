@@ -3,14 +3,14 @@ package ru.job4j.ex;
 public class UserStore {
 
     public static User findUser(User[] users, String login) throws UserNotFoundException {
-        User user = new User();
+        User user = null;
         for (User value : users) {
             if (login.equals(value.getUsername())) {
                 user = value;
                 break;
             }
         }
-        if (user.getUsername() == null) {
+        if (user == null) {
             throw new UserNotFoundException("User could not be found");
         }
         return user;
